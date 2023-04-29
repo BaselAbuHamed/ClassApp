@@ -13,7 +13,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.classapp.R;
+
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,8 +36,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ShowMag(View view) {
-        String [] datalist={"Male","Female","soso"};
+        ArrayList<Book> bookArrayList = new ArrayList<>();
 
+        bookArrayList.add(new Book(450,70 ,"Java","Coding"));
+        bookArrayList.add(new Book(500,200 ,"Data Structure","Coding"));
+        bookArrayList.add(new Book(320,120,"Introduction to Algorithm","Coding"));
+        bookArrayList.add(new Book(250,340 ,"Introduction to Cyber Security","Coding"));
+
+        String [] datalist=new String[bookArrayList.size()];
+        for (int i = 0; i < bookArrayList.size(); i++) {
+            datalist[i]=bookArrayList.get(i).title;
+        }
         ArrayAdapter<String> ad = new ArrayAdapter<>(this,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,datalist);
 
